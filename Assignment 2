@@ -7,6 +7,21 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+public class LunchItems {
+
+	public String name;
+	public double price;
+	public int calorie;
+	public int quantity;
+	
+	//constructor
+	public LunchItems(){
+	
+		name = "";
+		price = 0.0;
+		calorie = 0;	
+		quantity = 0;
+}
 public class Project2 {
 
 	public static void main(String[] args) throws FileNotFoundException  {
@@ -120,26 +135,3 @@ public class Project2 {
 					System.out.printf("%35s%20.2f%20d\n",my_item[f].get_name(),my_item[f].get_price(),my_item[f].get_calorie());
 				}
 		}
-		//Find food according to it's name 
-			else if(press == 4){
-				
-				System.out.println("What do you want to look for?");
-				String find = console.next();
-				
-				int a = 0;
-				boolean found = false;
-				while(a < my_item.length){
-					
-					if(my_item[a].get_name().equals(find)){
-						System.out.println("				name		  price			calorie");
-						System.out.printf("%35s%20.2f%20d\n",my_item[a].get_name(),my_item[a].get_price(),my_item[a].get_calorie());
-						found = true;
-						break;
-						}
-					else
-						a++;
-					}	
-					if(found == false) {
-						System.out.println("Sorry, we don't sell it");
-						}
-			}
