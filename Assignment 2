@@ -1,0 +1,145 @@
+//It is a class to view menu by order of name,price and calorie.
+//Customer can find item by its name, and they can order lunch
+
+import java.io.File; 
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Project2 {
+
+	public static void main(String[] args) throws FileNotFoundException  {
+		// TODO Auto-generated method stub
+				
+	//read from a text file and store them in to array
+	Scanner console = new Scanner(System.in);
+		
+		File inputFile = new File("c:/cs121/project2_Ye_input.txt");
+		Scanner myFile = new Scanner(inputFile);
+		
+		String name = null;
+		double price = 0.0;
+		int calorie = 0;
+		LunchItems [] my_item = new LunchItems[8];
+		
+		int i = 0;
+		while(myFile.hasNextLine()){
+				
+			name = myFile.next();
+			price = Double.parseDouble(myFile.next());
+			calorie = Integer.parseInt(myFile.next());
+			
+			my_item[i] = new LunchItems(name,price,calorie);
+			i++;
+			myFile.nextLine();
+		}
+		
+		myFile.close();
+		
+		double total_price = 0;
+		int [] quantity = new int[8];
+		int [] total_quantity = new int[8];
+		int press = 1;
+		while(press != 6){
+			System.out.println("		------------------------------------------------------------------------------");
+			System.out.println("						WELCOME!");
+			System.out.println("		------------------------------------------------------------------------------");
+			System.out.println("				Please press 1 to view menu by order of name\n"+ "				Please press 2 to view mune by oder of price \n"
+								+"				Please press 3 to view mune by order of calorioe\n"+ "				Please press 4 to find item\n"
+								+"				Please press 5 to order\n"+"				Please press 6 to quit");
+			System.out.println("		------------------------------------------------------------------------------");
+		
+			press = console.nextInt();
+		//view menu by order of name
+		if(press == 1){
+			
+				for(int a = 0; a < my_item.length-1; a++){
+					for(int b = a + 1; b < my_item.length; b++ ){
+						if(my_item[a].get_name().compareTo(my_item[b].get_name())>0){
+							
+							LunchItems temp1;
+							temp1 = my_item[a];
+							my_item[a] = my_item[b];
+							my_item[b] = temp1;
+						}
+					}
+				}
+				System.out.println("				name		  price			calorie");
+				System.out.println(" 				-----------------------------------------------");
+				for(int e = 0; e < my_item.length; e++){
+					System.out.printf("%35s%20.2f%20d\n",my_item[e].get_name(),my_item[e].get_price(),my_item[e].get_calorie());
+				}
+			}		 
+			//view name by order of price
+			else if(press == 2){
+				
+				for(int a = 1; a < my_item.length; a++){
+					LunchItems temp2 = my_item[a];
+					int final_position = a;
+					for(int b = a - 1; b >=0; b--){
+						
+						if(my_item[b].get_price() >temp2.get_price()){
+							my_item[b+1] =my_item[b];
+							final_position = b;
+						}
+					}
+						
+						if(final_position != a){
+							my_item[final_position] = temp2;
+						}
+				}
+				
+				System.out.println("				name		  price			calorie");
+				System.out.println(" 				-----------------------------------------------");		
+				for (int f = 0; f < my_item.length;f++){
+					System.out.printf("%35s%20.2f%20d\n",my_item[f].get_name(),my_item[f].get_price(),my_item[f].get_calorie());
+				}
+			}
+		//view name by order of calorie
+			else if(press == 3){
+				
+				for(int a = 1; a < my_item.length; a++){
+					LunchItems temp2 = my_item[a];
+					int final_position = a;
+					for(int b = a - 1; b >=0; b--){
+						
+						if(my_item[b].get_calorie() >temp2.get_calorie()){
+							my_item[b+1] =my_item[b];
+							final_position = b;
+						}
+					}
+						
+						if(final_position != a){
+							my_item[final_position] = temp2;
+						}
+				}
+				System.out.println("				name		  price			calorie");
+				System.out.println(" 				-----------------------------------------------");
+				for (int f = 0; f < my_item.length;f++){
+					System.out.printf("%35s%20.2f%20d\n",my_item[f].get_name(),my_item[f].get_price(),my_item[f].get_calorie());
+				}
+		}
+		//Find food according to it's name 
+			else if(press == 4){
+				
+				System.out.println("What do you want to look for?");
+				String find = console.next();
+				
+				int a = 0;
+				boolean found = false;
+				while(a < my_item.length){
+					
+					if(my_item[a].get_name().equals(find)){
+						System.out.println("				name		  price			calorie");
+						System.out.printf("%35s%20.2f%20d\n",my_item[a].get_name(),my_item[a].get_price(),my_item[a].get_calorie());
+						found = true;
+						break;
+						}
+					else
+						a++;
+					}	
+					if(found == false) {
+						System.out.println("Sorry, we don't sell it");
+						}
+			}
