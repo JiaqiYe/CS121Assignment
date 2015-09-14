@@ -104,9 +104,9 @@ public class Project2 {
 		    }
 		}
 						
-			if(final_position != a){
-				FoodCanBeOrder[final_position] = temp2;
-			}
+		if(final_position != a){
+			FoodCanBeOrder[final_position] = temp2;
+		}
 		}
 	}
 	//view name by order of calorie
@@ -115,8 +115,8 @@ public class Project2 {
 		for(int a = 1; a < FoodCanBeOrder.length; a++){
 		  LunchItems temp2 = FoodCanBeOrder[a];
 		  int final_position = a;
-		     for(int b = a - 1; b >=0; b--){
-			if(FoodCanBeOrder[b].get_calorie() >temp2.get_calorie()){
+		  for(int b = a - 1; b >=0; b--){
+		      if(FoodCanBeOrder[b].get_calorie() >temp2.get_calorie()){
 			  FoodCanBeOrder[b+1] =FoodCanBeOrder[b];
 			  final_position = b;
 			}
