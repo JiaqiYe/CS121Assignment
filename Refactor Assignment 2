@@ -50,11 +50,11 @@ public class Project2 {
 	}
 	  myFile.close();
 		
-	    double total_price = 0;
-	    int [] quantity = new int[8];
-	    int [] total_quantity = new int[8];
-	    int press = 1;
-	    while(press != 6){
+	  double total_price = 0;
+	  int [] quantity = new int[8];
+	  int [] total_quantity = new int[8];
+	  int press = 1;
+	  while(press != 6){
 		System.out.println("		------------------------------------------------------------------------------");
 		System.out.println("						WELCOME!");
 		System.out.println("		------------------------------------------------------------------------------");
@@ -77,12 +77,11 @@ public class Project2 {
 		  viewMenuOfCalorie();
 		}
 		//view menu by order of name
-		publbic void viewMenuOfName(){
+	publbic void viewMenuOfName(){
 			
-		  for(int a = 0; a < FoodCanBeOrder.length-1; a++){
+		for(int a = 0; a < FoodCanBeOrder.length-1; a++){
 		    for(int b = a + 1; b < FoodCanBeOrder; b++ ){
 			if(FoodCanBeOrder[a].get_name().compareTo(my_item[b].get_name())>0){
-						
 			  LunchItems temp1;
 			  temp1 = FoodCanBeOrder[a];
 		       	  FoodCanBeOrder[a] = FoodCanBeOrder[b];
@@ -90,51 +89,51 @@ public class Project2 {
 			}
 		    }
 		}
-        showOrder();
-	}		 
+        	showOrder();
+		}		 
 	//view name by order of price
-publbic void viewMenuOfPrice(){
+	publbic void viewMenuOfPrice(){
 				
-	for(int a = 1; a < FoodCanBeOrder.length; a++){
+	     for(int a = 1; a < FoodCanBeOrder.length; a++){
 		LunchItems temp2 = FoodCanBeOrder[a];
 		int final_position = a;
 		for(int b = a - 1; b >=0; b--){
-						
-	 		if(FoodCanBeOrder[b].get_price() >temp2.get_price()){
-				FoodCanBeOrder[b+1] =FoodCanBeOrder[b];
-				final_position = b;
-			}
+		   if(FoodCanBeOrder[b].get_price() >temp2.get_price()){
+			FoodCanBeOrder[b+1] =FoodCanBeOrder[b];
+			final_position = b;
+		    }
 		}
 						
 			if(final_position != a){
 				FoodCanBeOrder[final_position] = temp2;
 			}
 		}
-}
-//view name by order of calorie
-publbic void viewMenuOfCalorie(){
+	}
+	//view name by order of calorie
+	publbic void viewMenuOfCalorie(){
 				
-	for(int a = 1; a < FoodCanBeOrder.length; a++){
-		LunchItems temp2 = FoodCanBeOrder[a];
-		int final_position = a;
-			for(int b = a - 1; b >=0; b--){
-						
-				if(FoodCanBeOrder[b].get_calorie() >temp2.get_calorie()){
-					FoodCanBeOrder[b+1] =FoodCanBeOrder[b];
-					final_position = b;
-				}
+		for(int a = 1; a < FoodCanBeOrder.length; a++){
+		  LunchItems temp2 = FoodCanBeOrder[a];
+		  int final_position = a;
+		     for(int b = a - 1; b >=0; b--){
+			if(FoodCanBeOrder[b].get_calorie() >temp2.get_calorie()){
+			  FoodCanBeOrder[b+1] =FoodCanBeOrder[b];
+			  final_position = b;
 			}
+		}
 						
-				if(final_position != a){
-					FoodCanBeOrder[final_position] = temp2;
-				}
+		if(final_position != a){
+		   FoodCanBeOrder[final_position] = temp2;
+		}
 		}
         showOrder()
-}
-public void showOrder(){
-	System.out.println("				name		  price			calorie");
-	System.out.println(" 				-----------------------------------------------");
+	}
+	public void showOrder(){
+		System.out.println("				name		  price			calorie");
+		System.out.println(" 				-----------------------------------------------");
 		for(int e = 0; e < my_item.length; e++){
-			System.out.printf("%35s%20.2f%20d\n",FoodCanBeOrder[e].get_name(),FoodCanBeOrder[e].get_price(),FoodCanBeOrder[e].get_calorie());
+			System.out.printf("%35s%20.2f%20d\n",FoodCanBeOrder[e].get_name(),
+			FoodCanBeOrder[e].get_price(),
+			FoodCanBeOrder[e].get_calorie());
 		}
 }
