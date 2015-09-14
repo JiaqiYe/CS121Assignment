@@ -36,7 +36,7 @@ public class Project3 {
 		budget = console.nextDouble();
 		
 		while(press !=5){
-      showMenu();
+      		showMenu();
 		//call functions to see menu,order lunch,change order and get receipt	
 		press = console.nextInt();	
 		switch(press){
@@ -84,7 +84,7 @@ public class Project3 {
 		int quantity;
 		int in = 0;
 		while(in !=6){
-      showFoodItem();
+      		showFoodItem();
 			
 			if(in == 0){
 				BurgerOrder();
