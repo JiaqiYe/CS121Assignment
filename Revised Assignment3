@@ -111,7 +111,7 @@ public class Project3 {
 				check_budget();
 			}
 		}
-		public static void showFoodItem(){
+	public static void showFoodItem(){
 			System.out.println("-----------------------------------------------");
 		    for(int i =0; i< Lunch_order.size(); i++){
 			 system.out.printf("Please press "+i+" to order "+Lunch_order.get(i).get_name()+"\n");
@@ -121,32 +121,32 @@ public class Project3 {
 			  System.out.println("-----------------------------------------------");
 			  in = console.nextInt();
 		}
-		public static void BurgerOrder(){
+	public static void BurgerOrder(){
 		  	System.out.println("How many burgers do you want?");
 			quantity = console.nextInt();		
 			Burger.add_quantity(quantity);
 		}
-		public static void pizzaOrder(){
+	public static void pizzaOrder(){
 			System.out.println("How many Pizza do you want?");
 			quantity = console.nextInt();
 			Pizza.add_quantity(quantity);
 		}
-		public static void tacoOrder(){
+	public static void tacoOrder(){
 			System.out.println("How many Taco do you want?");
 			quantity = console.nextInt();
 			Taco.add_quantity(quantity);
 		}
-		public static void saladOrder(){
+	public static void saladOrder(){
 			System.out.println("How many Salad do you want?");
 			quantity = console.nextInt();
 			Salad.add_quantity(quantity);
 		}
-		public static void cakeOrder(){
+	public static void cakeOrder(){
 			System.out.println("How many Cake do you want?");
 			quantity = console.nextInt();
 			Cake.add_quantity(quantity);
 		}
-		public static void SouprOrder(){
+	public static void SouprOrder(){
 			System.out.println("How many Soup do you want?");
 			quantity = console.nextInt();
 			soup.add_quantity(quantity);
