@@ -1,0 +1,155 @@
+//It is a class for customers to order lunch. 
+//Customers can see menu,order lunch, and change order.
+import java.util.LinkedList;
+import java.util.Scanner;
+
+public class Project3 {
+
+	static LinkedList<LunchItems> Lunch_order = new LinkedList<LunchItems>();
+	static LinkedList<LunchSpecial> special_order = new LinkedList<LunchSpecial>();
+	
+	static LunchItems Burger = new LunchItems("Burger",5.0);
+	static LunchItems Pizza = new LunchItems("Pizza",3.0);
+	static LunchItems Taco = new LunchItems("Taco",4.25);
+	static LunchItems Salad = new LunchItems("Salad",1.5);
+	static LunchItems Cake = new LunchItems("Cake",2.25);
+	static LunchSpecial Soup = new LunchSpecial("Soup",2.0,"Large");
+	
+	static double budget;
+	//main function to call different functions
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Lunch_order.add(Burger);
+		Lunch_order.add(Pizza);
+		Lunch_order.add(Taco);
+		Lunch_order.add(Salad);
+		Lunch_order.add(Cake);
+		special_order.add(Soup);
+
+		int press = 1;
+		System.out.println("-----------------------------------------------");
+		System.out.println("	Welcome to Tom's house");
+		System.out.println("-----------------------------------------------");
+		Scanner console = new Scanner(System.in);
+		System.out.println("How many do you want to pay for your lunch?");
+		budget = console.nextDouble();
+		
+		while(press !=5){
+      showMenu();
+		//call functions to see menu,order lunch,change order and get receipt	
+		press = console.nextInt();	
+		switch(press){
+			case 1:viewMenu();
+			break;
+			case 2:orderFood();
+			break;
+			case 3:show_order();
+			break;
+			case 4:change_order();
+			break;
+			case 5:show_order();
+		}
+		}
+	}
+	
+	//a function to view menu
+	public static void showMenu(){
+			System.out.println("-----------------------------------------------");
+			System.out.println("Please press 1 to see the menu");
+			System.out.println("Please press 2 to order your lunch");
+			System.out.println("Please press 3 to see your order.");
+			System.out.println("Please press 4 to change the order.");
+			System.out.println("Please press 5 to quit");
+			System.out.println("-----------------------------------------------");
+	}
+	public static void viewMenu(){
+	
+		System.out.println("------------------------------------------------");
+		System.out.printf("%15s%15s%20s\n","Name","Price","Special_size");
+		System.out.println("------------------------------------------------");
+		for(LunchItems s:Lunch_order){
+			System.out.printf("%15s%15.2f\n",s.get_name(),s.get_price());
+		}
+		for(LunchSpecial s:special_order){
+			System.out.printf("%15s%15.2f%20s\n",s.get_name(),s.get_price(),s.get_size());
+		}
+		System.out.println("------------------------------------------------");
+	}	
+	//A function to order lunch, and it can check budget for you.
+	//If you don't have enough money,it will warn you.
+	public static void orderFood(){
+		
+		Scanner console = new Scanner(System.in);
+		int quantity;
+		int in = 0;
+		while(in !=6){
+      showFoodItem();
+			
+			if(in == 0){
+				BurgerOrder();
+				check_budget();
+			}
+			if(in == 1){
+			  pizzaOrder();
+				check_budget();
+			}
+			if(in == 2){
+		    tacoOrder();
+				check_budget();
+			}
+			if(in == 3){
+			  saladOrder();
+				check_budget();
+		}
+			if(in == 4){
+				cakeOrder();
+				check_budget();
+		}
+			if(in == 5){
+			  soupOrder();
+				check_budget();
+			}
+		}
+		public static void showFoodItem(){
+				System.out.println("-----------------------------------------------");
+		    for(int i =0; i< Lunch_order.size(); i++){
+			    System.out.printf("Please press "+i+" to order "+Lunch_order.get(i).get_name()+"\n");
+		    }
+			  System.out.printf("Please press 5 to order Soup\n");
+			  System.out.printf("Please press 6 to quit\n");
+			  System.out.println("-----------------------------------------------");
+			  in = console.nextInt();
+		}
+		public static void BurgerOrder(){
+		  	System.out.println("How many burgers do you want?");
+				quantity = console.nextInt();		
+				Burger.add_quantity(quantity);
+		}
+		public static void pizzaOrder(){
+				System.out.println("How many Pizza do you want?");
+				quantity = console.nextInt();
+				Pizza.add_quantity(quantity);
+		}
+		public static void tacoOrder(){
+				System.out.println("How many Taco do you want?");
+				quantity = console.nextInt();
+				Taco.add_quantity(quantity);
+		}
+		public static void saladOrder(){
+				System.out.println("How many Salad do you want?");
+				quantity = console.nextInt();
+				Salad.add_quantity(quantity);
+		}
+		public static void cakeOrder(){
+				System.out.println("How many Cake do you want?");
+				quantity = console.nextInt();
+				Cake.add_quantity(quantity);
+		}
+		public static void SouprOrder(){
+				System.out.println("How many Soup do you want?");
+				quantity = console.nextInt();
+				Soup.add_quantity(quantity);
+		}
+	
+		}
