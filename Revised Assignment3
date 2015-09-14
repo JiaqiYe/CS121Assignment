@@ -55,13 +55,13 @@ public class Project3 {
 	
 	//a function to view menu
 	public static void showMenu(){
-			System.out.println("-----------------------------------------------");
-			System.out.println("Please press 1 to see the menu");
-			System.out.println("Please press 2 to order your lunch");
-			System.out.println("Please press 3 to see your order.");
-			System.out.println("Please press 4 to change the order.");
-			System.out.println("Please press 5 to quit");
-			System.out.println("-----------------------------------------------");
+		System.out.println("-----------------------------------------------");
+		System.out.println("Please press 1 to see the menu");
+		System.out.println("Please press 2 to order your lunch");
+		System.out.println("Please press 3 to see your order.");
+		System.out.println("Please press 4 to change the order.");
+		System.out.println("Please press 5 to quit");
+		System.out.println("-----------------------------------------------");
 	}
 	public static void viewMenu(){
 	
@@ -87,16 +87,16 @@ public class Project3 {
       		showFoodItem();
 			
 			if(in == 0){
-				BurgerOrder();
-				check_budget();
+			 BurgerOrder();
+			 check_budget();
 			}
 			if(in == 1){
 			  pizzaOrder();
-				check_budget();
+			` check_budget();
 			}
 			if(in == 2){
-		    tacoOrder();
-				check_budget();
+		    	  tacoOrder();
+			  check_budget();
 			}
 			if(in == 3){
 			  saladOrder();
@@ -112,9 +112,9 @@ public class Project3 {
 			}
 		}
 		public static void showFoodItem(){
-				System.out.println("-----------------------------------------------");
+			System.out.println("-----------------------------------------------");
 		    for(int i =0; i< Lunch_order.size(); i++){
-			    System.out.printf("Please press "+i+" to order "+Lunch_order.get(i).get_name()+"\n");
+			 system.out.printf("Please press "+i+" to order "+Lunch_order.get(i).get_name()+"\n");
 		    }
 			  System.out.printf("Please press 5 to order Soup\n");
 			  System.out.printf("Please press 6 to quit\n");
@@ -123,33 +123,33 @@ public class Project3 {
 		}
 		public static void BurgerOrder(){
 		  	System.out.println("How many burgers do you want?");
-				quantity = console.nextInt();		
-				Burger.add_quantity(quantity);
+			quantity = console.nextInt();		
+			Burger.add_quantity(quantity);
 		}
 		public static void pizzaOrder(){
-				System.out.println("How many Pizza do you want?");
-				quantity = console.nextInt();
-				Pizza.add_quantity(quantity);
+			System.out.println("How many Pizza do you want?");
+			quantity = console.nextInt();
+			Pizza.add_quantity(quantity);
 		}
 		public static void tacoOrder(){
-				System.out.println("How many Taco do you want?");
-				quantity = console.nextInt();
-				Taco.add_quantity(quantity);
+			System.out.println("How many Taco do you want?");
+			quantity = console.nextInt();
+			Taco.add_quantity(quantity);
 		}
 		public static void saladOrder(){
-				System.out.println("How many Salad do you want?");
-				quantity = console.nextInt();
-				Salad.add_quantity(quantity);
+			System.out.println("How many Salad do you want?");
+			quantity = console.nextInt();
+			Salad.add_quantity(quantity);
 		}
 		public static void cakeOrder(){
-				System.out.println("How many Cake do you want?");
-				quantity = console.nextInt();
-				Cake.add_quantity(quantity);
+			System.out.println("How many Cake do you want?");
+			quantity = console.nextInt();
+			Cake.add_quantity(quantity);
 		}
 		public static void SouprOrder(){
-				System.out.println("How many Soup do you want?");
-				quantity = console.nextInt();
-				Soup.add_quantity(quantity);
+			System.out.println("How many Soup do you want?");
+			quantity = console.nextInt();
+			soup.add_quantity(quantity);
 		}
 	
 		}
