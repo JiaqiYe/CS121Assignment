@@ -9,132 +9,132 @@ import java.util.Scanner;
 
 public class LunchItems {
 
-	public String NameOfFood;
-	public double PriceOfFood;
-	public int calorieOfFood;
-	public int quantityOfFood;
+  public String NameOfFood;
+  public double PriceOfFood;
+  public int calorieOfFood;
+  public int quantityOfFood;
 }
-	public LunchItems(){
+public LunchItems(){
 	
-		NameOfFood = "";
-		PriceOfFood = 0.0;
-		calorieOfFood = 0;	
-		quantityOfFood = 0;
+  NameOfFood = "";
+  PriceOfFood = 0.0;
+  calorieOfFood = 0;	
+  quantityOfFood = 0;
 }
 public class Project2 {
 
-	public static void main(String[] args) throws FileNotFoundException  {
+  public static void main(String[] args) throws FileNotFoundException  {
 		// TODO Auto-generated method stub
 				
 	//read from a text file and store them in to array
-	  Scanner console = new Scanner(System.in);
+	Scanner console = new Scanner(System.in);
 		
-		File inputFile = new File("c:/cs121/project2_Ye_input.txt");
-		Scanner myFile = new Scanner(inputFile);
+	File inputFile = new File("c:/cs121/project2_Ye_input.txt");
+	Scanner myFile = new Scanner(inputFile);
 		
-		String NameOfFood = "";
-		int PriceOfFood = 0.0;
-		double calorieOfFood = 0;	
-		LunchItems [] FoodCanBeOrder = new LunchItems[8];
+	String NameOfFood = "";
+	int PriceOfFood = 0.0;
+	double calorieOfFood = 0;	
+	LunchItems [] FoodCanBeOrder = new LunchItems[8];
 		
-		int index = 0;
-		while(myFile.hasNextLine()){
+	int index = 0;
+	while(myFile.hasNextLine()){
 				
-			name = myFile.next();
-			price = Double.parseDouble(myFile.next());
-			calorie = Integer.parseInt(myFile.next());
+	  name = myFile.next();
+	  price = Double.parseDouble(myFile.next());
+	  calorie = Integer.parseInt(myFile.next());
 			
-			FoodCanBeOrder[index] = new LunchItems(name,price,calorie);
-			index++;
-			myFile.nextLine();
+	  FoodCanBeOrder[index] = new LunchItems(name,price,calorie);
+	  index++;
+	  myFile.nextLine();
+	}
+	  myFile.close();
+		
+	    double total_price = 0;
+	    int [] quantity = new int[8];
+	    int [] total_quantity = new int[8];
+	    int press = 1;
+	    while(press != 6){
+		System.out.println("		------------------------------------------------------------------------------");
+		System.out.println("						WELCOME!");
+		System.out.println("		------------------------------------------------------------------------------");
+		System.out.println("				Please press 1 to view menu by order of name\n"+ 
+			           "				Please press 2 to view mune by oder of price \n"
+				   +"				Please press 3 to view mune by order of calorioe\n"
+				   +"				Please press 4 to find item\n"
+				   +"				Please press 5 to order\n"
+				   +"				Please press 6 to quit");
+		System.out.println("	------------------------------------------------------------------------------");
+		
+		press = console.nextInt();
+		if(press == 1){
+		  viewMenuOfName();
 		}
-		myFile.close();
-		
-		double total_price = 0;
-		int [] quantity = new int[8];
-		int [] total_quantity = new int[8];
-		int press = 1;
-		while(press != 6){
-			System.out.println("		------------------------------------------------------------------------------");
-			System.out.println("						WELCOME!");
-			System.out.println("		------------------------------------------------------------------------------");
-			System.out.println("				Please press 1 to view menu by order of name\n"+ 
-			                   "				Please press 2 to view mune by oder of price \n"
-								        +"				Please press 3 to view mune by order of calorioe\n"
-								        +"				Please press 4 to find item\n"
-								        +"				Please press 5 to order\n"
-								        +"				Please press 6 to quit");
-			System.out.println("		------------------------------------------------------------------------------");
-		
-			press = console.nextInt();
-			if(press == 1){
-			viewMenuOfName();
-			}
-			if(press == 2){
-			viewMenuOfPrice();
-			}
-			if(press == 3){
-			viewMenuOfCalorie();
-			}
+		if(press == 2){
+		  viewMenuOfPrice();
+		}
+		if(press == 3){
+		  viewMenuOfCalorie();
+		}
 		//view menu by order of name
 		publbic void viewMenuOfName(){
 			
-				for(int a = 0; a < FoodCanBeOrder.length-1; a++){
-					for(int b = a + 1; b < FoodCanBeOrder; b++ ){
-						if(FoodCanBeOrder[a].get_name().compareTo(my_item[b].get_name())>0){
-							
-							LunchItems temp1;
-							temp1 = FoodCanBeOrder[a];
-							FoodCanBeOrder[a] = FoodCanBeOrder[b];
-							FoodCanBeOrder[b] = temp1;
-						}
-					}
-				}
+		  for(int a = 0; a < FoodCanBeOrder.length-1; a++){
+		    for(int b = a + 1; b < FoodCanBeOrder; b++ ){
+			if(FoodCanBeOrder[a].get_name().compareTo(my_item[b].get_name())>0){
+						
+			  LunchItems temp1;
+			  temp1 = FoodCanBeOrder[a];
+		       	  FoodCanBeOrder[a] = FoodCanBeOrder[b];
+			  FoodCanBeOrder[b] = temp1;
+			}
+		    }
+		}
         showOrder();
-			}		 
-			//view name by order of price
-			publbic void viewMenuOfPrice(){
+	}		 
+	//view name by order of price
+publbic void viewMenuOfPrice(){
 				
-				for(int a = 1; a < FoodCanBeOrder.length; a++){
-					LunchItems temp2 = FoodCanBeOrder[a];
-					int final_position = a;
-					for(int b = a - 1; b >=0; b--){
+	for(int a = 1; a < FoodCanBeOrder.length; a++){
+		LunchItems temp2 = FoodCanBeOrder[a];
+		int final_position = a;
+		for(int b = a - 1; b >=0; b--){
 						
-						if(FoodCanBeOrder[b].get_price() >temp2.get_price()){
-							FoodCanBeOrder[b+1] =FoodCanBeOrder[b];
-							final_position = b;
-						}
-					}
+	 		if(FoodCanBeOrder[b].get_price() >temp2.get_price()){
+				FoodCanBeOrder[b+1] =FoodCanBeOrder[b];
+				final_position = b;
+			}
+		}
 						
-						if(final_position != a){
-							FoodCanBeOrder[final_position] = temp2;
-						}
+			if(final_position != a){
+				FoodCanBeOrder[final_position] = temp2;
+			}
+		}
+}
+//view name by order of calorie
+publbic void viewMenuOfCalorie(){
+				
+	for(int a = 1; a < FoodCanBeOrder.length; a++){
+		LunchItems temp2 = FoodCanBeOrder[a];
+		int final_position = a;
+			for(int b = a - 1; b >=0; b--){
+						
+				if(FoodCanBeOrder[b].get_calorie() >temp2.get_calorie()){
+					FoodCanBeOrder[b+1] =FoodCanBeOrder[b];
+					final_position = b;
 				}
 			}
-		//view name by order of calorie
-			publbic void viewMenuOfCalorie(){
-				
-				for(int a = 1; a < FoodCanBeOrder.length; a++){
-					LunchItems temp2 = FoodCanBeOrder[a];
-					int final_position = a;
-					for(int b = a - 1; b >=0; b--){
 						
-						if(FoodCanBeOrder[b].get_calorie() >temp2.get_calorie()){
-							FoodCanBeOrder[b+1] =FoodCanBeOrder[b];
-							final_position = b;
-						}
-					}
-						
-						if(final_position != a){
-							FoodCanBeOrder[final_position] = temp2;
-						}
+				if(final_position != a){
+					FoodCanBeOrder[final_position] = temp2;
 				}
+		}
         showOrder()
-		 }
-			public void showOrder(){
-				System.out.println("				name		  price			calorie");
-				System.out.println(" 				-----------------------------------------------");
-				for(int e = 0; e < my_item.length; e++){
-					System.out.printf("%35s%20.2f%20d\n",FoodCanBeOrder[e].get_name(),FoodCanBeOrder[e].get_price(),FoodCanBeOrder[e].get_calorie());
-				}
-			}
+}
+public void showOrder(){
+	System.out.println("				name		  price			calorie");
+	System.out.println(" 				-----------------------------------------------");
+		for(int e = 0; e < my_item.length; e++){
+			System.out.printf("%35s%20.2f%20d\n",FoodCanBeOrder[e].get_name(),FoodCanBeOrder[e].get_price(),FoodCanBeOrder[e].get_calorie());
+		}
+}
